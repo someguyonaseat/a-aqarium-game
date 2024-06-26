@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aquarium God Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        #aquarium {
+            width: 600px;
+            height: 400px;
+            border: 2px solid #000;
+            position: relative;
+            background: lightblue;
+        }
+        .fish, .plant {
+            position: absolute;
+        }
+        .fish {
+            width: 50px;
+            height: 30px;
+            background: orange;
+            border-radius: 50%;
+        }
+        .plant {
+            width: 20px;
+            height: 50px;
+            background: green;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Aquarium God Game</h1>
+    <div id="game-container">
+        <div id="aquarium">
+            <div class="fish" style="top: 50px; left: 100px;"></div>
+            <div class="fish" style="top: 150px; left: 200px;"></div>
+            <div class="plant" style="left: 50px;"></div>
+            <div class="plant" style="left: 300px;"></div>
+        </div>
+        <button id="exploreButton">Explore</button>
+    </div>
+
+    <script>
+        document.getElementById('exploreButton').addEventListener('click', function() {
+            alert('Exploring the aquarium!');
+        });
+
+        // Function to add new elements to the aquarium
+        function addElement(type, top, left) {
+            const element = document.createElement('div');
+            element.className = type;
+            element.style.top = top + 'px';
+            element.style.left = left + 'px';
+            document.getElementById('aquarium').appendChild(element);
+        }
+
+        // Example of adding new fish and plants dynamically
+        addElement('fish', 200, 400);
+        addElement('plant', 0, 500);
+    </script>
+</body>
+</html>
